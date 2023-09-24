@@ -1,0 +1,500 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat&family=Playfair+Display&family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #080808;
+  color: #fff;
+}
+
+#header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(./images/background.png);
+  background-size: cover; /* this tries as much as possible to put the image within the element (make it visible) */
+  background-position: center; /* this centers the element both horizontally and vertically */
+}
+
+.logo {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.red-color {
+  color: red;
+}
+
+.container {
+  padding: 10px 10%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 99;
+  padding-top: 10px;
+  width: 100%;
+  padding-left: 200px;
+  padding-right: 100px;
+}
+
+.scroll-change-nav {
+  background: #080808;
+  opacity: 0.8;
+}
+
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+nav ul li a::after {
+  /*  is a pseudo-element selector that allows you to create content that appears after the content of an element, without needing to add additional HTML markup { */
+  content: "";
+  /* We will make the width 0 so it wouldn't be visible until we hover, then we turn it to 100% */
+  width: 0;
+  height: 3px;
+  background-color: #ff004f;
+  position: absolute;
+  left: 0;
+  /* we could do top: 60px; for example too, but we chose this one because it's easy */
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+/* the hover effect is on the a element */
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+.header-text {
+  margin-top: 20%;
+  font-size: 30px;
+}
+
+.header-text p {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+/* -------------About------------- */
+
+#about {
+  padding: 80px 0;
+  color: #ababab;
+}
+
+.row {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-col-1 {
+  flex-basis: 35%;
+}
+
+.about-col-1 img {
+  margin-left: 50px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.about-col-2 {
+  flex-basis: 55%;
+}
+
+.sub-title {
+  font-size: 60px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.tab-titles {
+  display: flex;
+  margin: 20px 0 40px;
+}
+
+.tab-links {
+  margin-right: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-links::after {
+  content: "";
+  width: 0;
+  height: 5px;
+  background-color: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+
+.tab-links.active-link::after {
+  width: 100%;
+}
+
+.tab-contents ul li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.tab-contents ul li span {
+  color: #b54769;
+  font-size: 14px;
+}
+
+.tab-contents {
+  display: none;
+}
+
+.tab-contents.active-tab {
+  display: block;
+}
+
+/* Services Section */
+
+#sercices {
+  padding: 30px 0;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+
+.services-list div {
+  background: #262626;
+  padding: 40px;
+  font-size: 13px;
+  font-weight: 300;
+  border-radius: 10px;
+  transition: background 0.5s, transform 0.5s; /* it takes the background 0.5s to change the color and 0.5s for the animation to work */
+}
+
+.services-list div i {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.services-list div h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.services-list div a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 50px;
+  display: inline-block; /* without this, the margin top wouldn't work because by default, anchor tags are inline and so they don't show margin like elements that has block */
+}
+
+.services-list div:hover {
+  background: #ff004f;
+  transform: translateY(-10px); /* the div will move up because of this */
+}
+
+/* portfolio */
+
+#portfolio {
+  padding: 50px 0;
+}
+
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+.work {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden; /* anything outside the div won't show */
+}
+.work img {
+  width: 100%; /* thiss will adjust the size of the image so it would display 100% of its width without going out of the flow */
+  height: 100%;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.work:hover img {
+  transform: scale(1.1);
+}
+
+.layer {
+  width: 100%; /* here we mean 100% width of the parent element */
+  height: 0; /* normally this should be 100% but we will leave it for the hover effect, so basically, everything will be hidden until we hover and they everything will get displayed */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  text-align: center;
+  font-size: 14px;
+  transition: height 0.5s;
+}
+
+.layer h3 {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.layer a {
+  margin-top: 20px;
+  color: #ff004f;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 60px;
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work:hover .layer {
+  height: 100%;
+}
+
+.btn {
+  display: block; /* we did this so it would take the full width of the line */
+  margin: 50px auto;
+  width: fit-content;
+  border: 1px solid #ff004f;
+  padding: 14 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.5s, transform 0.5s;
+}
+
+.btn:hover {
+  background: #ff004f;
+  transform: translateY(-10px);
+}
+
+/* Contact Section */
+
+.contact-left {
+  flex-basis: 35%;
+}
+
+.contact-right {
+  flex-basis: 60%;
+}
+
+.contact-left p {
+  margin-top: 30px;
+}
+
+.contact-left p i {
+  color: #ff004f;
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.social-icons {
+  margin-top: 30px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  font-size: 30px;
+  margin-right: 15px;
+  color: #ababab;
+  display: inline-block;
+  transition: transofrm 0.5s;
+}
+
+.social-icons a:hover {
+  color: #ff004f;
+  transform: translateY(-5px);
+}
+
+.btn.btn2 {
+  display: inline-block; /* we did this so that there will be no right and left margin */
+  background: #ff004f;
+}
+
+.contact-right form {
+  width: 100%;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border: 0; /* hides the default border of the input and text area */
+  /* outline: none; */ /* hides the default highlight in those areas when clicked */
+  background-color: #262626;
+  padding: 15px;
+  margin: 15px 0;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 6px;
+  resize: none;
+}
+
+form .btn2 {
+  padding: 14px 60px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* Footer Section */
+
+#footer {
+  width: 100%;
+  background-color: #262626;
+  text-align: center;
+  padding: 25px 0;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+/* css for small screens */
+nav .bx {
+  display: none;
+}
+
+@media (max-width: 1300px) {
+  nav {
+    padding-left: 130px;
+    padding-right: 60px;
+  }
+}
+
+@media (max-width: 1143px) {
+  nav {
+    padding-left: 100px;
+    padding-right: 40px;
+  }
+}
+
+/*  */
+
+@media only screen and (max-width: 600px) {
+  #header {
+    background-image: none;
+  }
+
+  nav {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .header-text {
+    margin-top: 100%;
+    font-size: 16px;
+  }
+
+  nav .bx {
+    display: block;
+    font-size: 30px;
+  }
+  nav ul {
+    background: #ff004f;
+    position: fixed;
+    top: 0;
+    right: -200px; /* to hide it */
+    width: 200px;
+    height: 100vh;
+    padding-top: 100px;
+    z-index: 2;
+    transition: right 0.5s;
+    opacity: 0.9;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 25px;
+  }
+
+  nav ul .bx {
+    margin-top: 50px;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+  }
+
+  .unhide {
+    right: 0;
+  }
+
+  .sub-title {
+    font-size: 40px;
+  }
+
+  .about-col-1 img {
+    margin: auto;
+    height: 100%;
+  }
+
+  .about-col-1,
+  .about-col-2 {
+    flex-basis: 100%;
+  }
+
+  .about-col-1 {
+    margin-bottom: 30px;
+  }
+
+  .about-col-2 {
+    font-size: 14px;
+  }
+
+  .tab-links {
+    font-size: 16px;
+    margin-right: 20px;
+  }
+
+  .contact-left,
+  .contact-right {
+    flex-basis: 100%;
+  }
+
+  #footer {
+    font-size: 14px;
+  }
+}
